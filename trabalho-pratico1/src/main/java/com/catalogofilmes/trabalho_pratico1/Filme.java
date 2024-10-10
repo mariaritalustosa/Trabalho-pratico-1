@@ -1,5 +1,6 @@
-package com.catalogofilmes.trabalho_pratico1.Entidades;
+package com.catalogofilmes.trabalho_pratico1;
 import java.util.*;
+
 import jakarta.persistence.*;
 
 @Entity
