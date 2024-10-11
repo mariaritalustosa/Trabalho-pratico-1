@@ -1,10 +1,11 @@
-package com.catalogofilmes.trabalho_pratico1.Entidades;
+package com.catalogofilmes.trabalho_pratico1;
 import java.util.*;
+
 import jakarta.persistence.*;
 
 
 @Entity
-public class Generos {
+public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,7 +13,7 @@ public class Generos {
     private String nome;
 
     @ManyToMany(mappedBy = "generos")
-    private Set<Filme> filmes = new HashSet<>();
+    private List<Filme> filmes = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -30,11 +31,11 @@ public class Generos {
         this.nome = nome;
     }
 
-    public Set<Filme> getFilmes(){
+    public List<Filme> getFilmes(){
         return filmes;
     }
 
-    public void setFilmes(Set<Filme> filmes){
+    public void setFilmes(List<Filme> filmes){
         this.filmes = filmes;
     }
 

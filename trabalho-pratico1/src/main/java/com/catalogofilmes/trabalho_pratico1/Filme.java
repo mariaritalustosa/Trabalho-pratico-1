@@ -18,7 +18,7 @@ public class Filme {
         joinColumns = @JoinColumn(name = "filme_id"),
         inverseJoinColumns = @JoinColumn(name = "ator_id")
     )
-    private Set<Ator> atores = new HashSet<>();
+    private List<Ator> atores = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -26,7 +26,7 @@ public class Filme {
         joinColumns = @JoinColumn(name = "filme_id"),
         inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
-    private Set<Genero> generos = new HashSet<>();
+    private List<Genero> generos = new ArrayList<>();
 
     public Long getId(){
         return id;
@@ -52,19 +52,19 @@ public class Filme {
         this.ano = ano;
     }
 
-    public Set<Ator> getAtores(){
+    public List<Ator> getAtores(){
         return atores;
     }
 
-    public void setAtores(Set<Ator> atores){
+    public void setAtores(List<Ator> atores){
         this.atores = atores;
     }
 
-    public Set<Genero> getGeneros(){
+    public List<Genero> getGeneros(){
         return generos;
     }
 
-    public void setGeneros(Set<Genero> generos){
+    public void setGeneros(List<Genero> generos){
         this.generos = generos;
     }
 

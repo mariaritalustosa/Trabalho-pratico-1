@@ -1,7 +1,5 @@
 package com.catalogofilmes.trabalho_pratico1;
-
-import java.util.Optional;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +10,15 @@ public class FilmeService {
     
     public Filme salvarFilme(Filme filme){
         return filmeRepository.save(filme);
+    }
 
-    //
+    public List <Filme> listarFilmes(){
+        return filmeRepository.findAll();
+    }
+    //public Optional<Filme> = filmeRepository.findAllById(id);
     
-    public Optional<Filme> buscarPorId(Long id){
-        return filmeRepository.findAllById(id);
-    }
+    //*public List<Filme> removerFilme(Long id){
+       // filmeRepository.deleteById(id);
+    //}
 
-    }
 }

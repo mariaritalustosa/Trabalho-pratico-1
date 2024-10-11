@@ -1,7 +1,5 @@
 package com.catalogofilmes.trabalho_pratico1;
-
 import java.util.*;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +11,7 @@ public class Ator {
     private String nome;
 
     @ManyToMany(mappedBy = "atores")
-    private Set<Filme> filmes = new HashSet<>();
+    private List<Filme> filmes = new ArrayList<>();
 
     public Ator(){
     }
@@ -34,10 +32,10 @@ public class Ator {
         this.nome = nome;
     }
 
-    public Set<Filme> getFilmes(){
+    public List<Filme> getFilmes(){
         return filmes;
     }
-    public void setFilmes(Set<Filme> filmes){
+    public void setFilmes(List<Filme> filmes){
         this.filmes = filmes;
     }
 }
