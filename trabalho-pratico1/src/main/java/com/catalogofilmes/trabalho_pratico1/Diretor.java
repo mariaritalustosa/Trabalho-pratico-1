@@ -2,7 +2,7 @@ package com.catalogofilmes.trabalho_pratico1;
 import java.util.*;
 
 import jakarta.persistence.*;
-
+@Entity
 public class Diretor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -11,6 +11,10 @@ public class Diretor {
 
     @OneToMany(mappedBy = "diretor")
     private List<Filme> filmes;
+
+    public Diretor(){
+        
+    }
 
     public Long getId(){
         return id;

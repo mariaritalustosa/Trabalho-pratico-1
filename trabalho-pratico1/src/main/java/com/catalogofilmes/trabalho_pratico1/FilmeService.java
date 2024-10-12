@@ -15,10 +15,12 @@ public class FilmeService {
     public List <Filme> listarFilmes(){
         return filmeRepository.findAll();
     }
-    //public Optional<Filme> = filmeRepository.findAllById(id);
+    public Optional<Filme> buscarFilmePorId(Long id) {
+        return filmeRepository.findById(id);
+    }
     
-    //*public List<Filme> removerFilme(Long id){
-       // filmeRepository.deleteById(id);
-    //}
+    public void removerFilme(Long id){
+       filmeRepository.deleteById(id);
+    }
 
 }

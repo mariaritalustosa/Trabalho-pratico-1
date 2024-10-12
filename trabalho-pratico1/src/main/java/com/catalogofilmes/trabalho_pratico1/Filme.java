@@ -10,7 +10,7 @@ public class Filme {
     private Long id;
 
     private String titulo;
-    private int ano;
+    private Long ano;
 
     @ManyToMany
     @JoinTable(
@@ -28,6 +28,12 @@ public class Filme {
     )
     private List<Genero> generos = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "diretor_id")
+    private Diretor diretor;  
+
+    public Filme() {}
+
     public Long getId(){
         return id;
     }
@@ -44,11 +50,11 @@ public class Filme {
         this.titulo = titulo;
     }
 
-    public int getAno(){
+    public Long getAno(){
         return ano;
     }
 
-    public void setAno(int ano){
+    public void setAno(Long ano){
         this.ano = ano;
     }
 
