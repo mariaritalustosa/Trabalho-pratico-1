@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DiretorRepository extends JpaRepository<Diretor, Long> {
 
+    Diretor findByNome(String nome);
+
 }

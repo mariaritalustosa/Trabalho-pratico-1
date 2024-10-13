@@ -1,7 +1,8 @@
 package com.catalogofilmes.trabalho_pratico1;
-import java.util.*;
 
+import java.util.*;
 import jakarta.persistence.*;
+
 
 @Entity
 public class Filme {
@@ -11,6 +12,10 @@ public class Filme {
 
     private String titulo;
     private Long ano;
+
+    @ManyToOne
+    @JoinColumn(name = "diretor_id", referencedColumnName = "id")
+    private Diretor diretor;
 
     @ManyToMany
     @JoinTable(
@@ -27,10 +32,6 @@ public class Filme {
         inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
     private List<Genero> generos = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "diretor_id")
-    private Diretor diretor;  
 
     public Filme() {}
 
@@ -72,6 +73,11 @@ public class Filme {
 
     public void setGeneros(List<Genero> generos){
         this.generos = generos;
+    }
+
+    public void setDiretor(Diretor diretor2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDiretor'");
     }
 
 }
