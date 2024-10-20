@@ -36,46 +36,39 @@ public class Main implements CommandLineRunner {
              if (opcao == 1) {
             adicionarFilme(scanner);
              } else if (opcao == 2) {
-    removerFilme(scanner);
-} else if (opcao == 3) {
-    listarFilmes();
-} else if (opcao == 4) {
-    buscarFilme(scanner);
-} else if (opcao == 5) {
-    continuar = false;
-    System.out.println("Programa encerrado");
-} else {
-    System.out.println("Opção inválida, tente novamente.");
-}
-
+           removerFilme(scanner);
+          } else if (opcao == 3) {
+             listarFilmes();
+           } else if (opcao == 4) {
+             buscarFilme(scanner);
+            } else if (opcao == 5) {
+               continuar = false;
+           System.out.println("Programa encerrado");
+          } else {
+        System.out.println("Opção inválida, tente novamente.");
+        }
         }
     }
 
     private void adicionarFilme(Scanner scanner) {
         System.out.println("Digite o nome do filme: ");
         String titulo = scanner.nextLine();
-        Long ano = null;
-        boolean anoValido = false;
-
-        while (!anoValido) {
-            System.out.println("Digite o ano de lançamento: ");
-            String anoInput = scanner.nextLine();
-
-            try {
-                ano = Long.parseLong(anoInput);
-                anoValido = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Ano inválido. Insira um número válido.");
-            }
-        }
+        System.out.println("Digite o ano de lançamento: ");
+        Long ano = Long.parseLong(scanner.nextLine());
+        System.out.println("Digite o gênero: ");
+        String genero = scanner.nextLine();
+        System.out.println("Digite o diretor do filme: ");
+        String diretor = scanner.nextLine();
 
         Filme filme = new Filme();
         filme.setTitulo(titulo);
         filme.setAno(ano);
-
+        filme.setGeneros(genero);
+        filme.setDiretor(diretor);
         filmeService.salvarFilme(filme);
         System.out.println("Filme adicionado!!!");
-    }
+        }
+    
 
     private void removerFilme(Scanner scanner) {
         System.out.println("Digite o id do filme que deseja remover: ");
@@ -92,7 +85,10 @@ public class Main implements CommandLineRunner {
             System.out.println("Nenhum filme cadastrado.");
         } else {
             System.out.println("Lista de Filmes:");
-            filmes.forEach(filme -> System.out.println("Título: " + filme.getTitulo() + ", Ano: " + filme.getAno()));
+            filmes.forEach(filme -> System.out.println("Título: " + filme.getTitulo() + 
+            " ,Ano: " + filme.getAno() + 
+            "Genero: " + filme.getGenero() + 
+            "Diretor: " + filme.getDiretor()));
         }
     }
 

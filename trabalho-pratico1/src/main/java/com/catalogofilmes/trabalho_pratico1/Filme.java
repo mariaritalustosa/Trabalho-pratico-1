@@ -1,6 +1,4 @@
 package com.catalogofilmes.trabalho_pratico1;
-
-import java.util.*;
 import jakarta.persistence.*;
 
 
@@ -9,31 +7,19 @@ public class Filme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
     private Long ano;
-
-    @ManyToOne
-    @JoinColumn(name = "diretor_id", referencedColumnName = "id")
-    private Diretor diretor;
-
-    @ManyToMany
-    @JoinTable(
-        name = "filme_ator",
-        joinColumns = @JoinColumn(name = "filme_id"),
-        inverseJoinColumns = @JoinColumn(name = "ator_id")
-    )
-    private List<Ator> atores = new ArrayList<>();
-
-    @ManyToMany
-    @JoinTable(
-        name = "genero_filme",
-        joinColumns = @JoinColumn(name = "filme_id"),
-        inverseJoinColumns = @JoinColumn(name = "genero_id")
-    )
-    private List<Genero> generos = new ArrayList<>();
+    private String genero;
+    private String diretor;
 
     public Filme() {}
+
+    public Filme(String titulo, Long ano, String genero, String diretor){
+        this.titulo = titulo;
+        this.ano= ano;
+        this.genero = genero;
+        this.diretor = diretor;
+    }
 
     public Long getId(){
         return id;
@@ -48,7 +34,7 @@ public class Filme {
     }
 
     public void setTitulo(String titulo){
-        this.titulo = titulo;
+        this.titulo=titulo;
     }
 
     public Long getAno(){
@@ -59,25 +45,20 @@ public class Filme {
         this.ano = ano;
     }
 
-    public List<Ator> getAtores(){
-        return atores;
+    public String getGenero(){
+        return genero;
     }
 
-    public void setAtores(List<Ator> atores){
-        this.atores = atores;
+    public void setGeneros(String genero){
+        this.genero = genero;
     }
 
-    public List<Genero> getGeneros(){
-        return generos;
+    public String getDiretor(){
+        return diretor;
     }
 
-    public void setGeneros(List<Genero> generos){
-        this.generos = generos;
-    }
-
-    public void setDiretor(Diretor diretor2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDiretor'");
+    public void setDiretor(String diretor){
+        this.diretor=diretor;
     }
 
 }

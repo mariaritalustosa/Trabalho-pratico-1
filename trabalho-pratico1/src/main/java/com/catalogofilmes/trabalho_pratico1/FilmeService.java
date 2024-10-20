@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 public class FilmeService {
     @Autowired
     private FilmeRepository filmeRepository;
-    private GeneroRepository generoRepository;
-    private DiretorRepository diretorRepository;
     
     public Filme salvarFilme(Filme filme){
         return filmeRepository.save(filme);
@@ -24,13 +22,6 @@ public class FilmeService {
     public void removerFilme(Long id){
        filmeRepository.deleteById(id);
     }
-    public Diretor buscarDiretorPorNome(String nome) {
-        return diretorRepository.findByNome(nome); 
-    }
-    
-    public Genero buscarGeneroPorNome(String nome) {
-        return generoRepository.findByNome(nome); 
-    }
-    
+  
 
 }
