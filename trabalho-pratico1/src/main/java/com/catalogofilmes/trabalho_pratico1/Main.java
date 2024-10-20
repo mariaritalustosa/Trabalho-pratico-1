@@ -55,17 +55,13 @@ public class Main implements CommandLineRunner {
         String titulo = scanner.nextLine();
         System.out.println("Digite o ano de lançamento: ");
         Long ano = Long.parseLong(scanner.nextLine());
-        System.out.println("Digite o gênero do filme: ");
-        String genero = scanner.nextLine();
         System.out.println("Digite o diretor do filme: ");
         String diretor = scanner.nextLine();
 
-        
+
         Filme filme = new Filme();
         filme.setTitulo(titulo);
         filme.setAno(ano);
-        Genero generoObj = new Genero(genero);
-        filme.setGeneros(Collections.singletonList(generoObj));
         filme.setDiretor(diretor);
         filmeService.salvarFilme(filme);
         System.out.println("Filme adicionado!!!");
@@ -88,8 +84,7 @@ public class Main implements CommandLineRunner {
         } else {
             System.out.println("Lista de Filmes:");
             filmes.forEach(filme -> System.out.println("Título: " + filme.getTitulo() + 
-            ", Ano: " + filme.getAno() + 
-            ", Gênero: " + filme.getGeneros() +
+            ", Ano: " + filme.getAno() +
             ", Diretor: " + filme.getDiretor()));
         }
     }

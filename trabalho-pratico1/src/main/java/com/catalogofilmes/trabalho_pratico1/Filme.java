@@ -60,7 +60,7 @@ public class Filme {
     }
 
     public void setGeneros(List<Genero> generos) {
-        this.generos = generos; 
+        this.generos = generos;
     }
 
     public String getDiretor() {
