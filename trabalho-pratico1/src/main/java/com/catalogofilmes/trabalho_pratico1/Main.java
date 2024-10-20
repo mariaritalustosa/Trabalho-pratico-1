@@ -36,10 +36,10 @@ public class Main implements CommandLineRunner {
              if (opcao == 1) {
             adicionarFilme(scanner);
              } else if (opcao == 2) {
-           removerFilme(scanner);
-          } else if (opcao == 3) {
+             removerFilme(scanner);
+            } else if (opcao == 3) {
              listarFilmes();
-           } else if (opcao == 4) {
+            } else if (opcao == 4) {
              buscarFilme(scanner);
             } else if (opcao == 5) {
                continuar = false;
@@ -55,15 +55,17 @@ public class Main implements CommandLineRunner {
         String titulo = scanner.nextLine();
         System.out.println("Digite o ano de lançamento: ");
         Long ano = Long.parseLong(scanner.nextLine());
-        System.out.println("Digite o gênero: ");
+        System.out.println("Digite o gênero do filme: ");
         String genero = scanner.nextLine();
         System.out.println("Digite o diretor do filme: ");
         String diretor = scanner.nextLine();
 
+        
         Filme filme = new Filme();
         filme.setTitulo(titulo);
         filme.setAno(ano);
-        filme.setGeneros(genero);
+        Genero generoObj = new Genero(genero);
+        filme.setGeneros(Collections.singletonList(generoObj));
         filme.setDiretor(diretor);
         filmeService.salvarFilme(filme);
         System.out.println("Filme adicionado!!!");
@@ -86,9 +88,9 @@ public class Main implements CommandLineRunner {
         } else {
             System.out.println("Lista de Filmes:");
             filmes.forEach(filme -> System.out.println("Título: " + filme.getTitulo() + 
-            " ,Ano: " + filme.getAno() + 
-            "Genero: " + filme.getGenero() + 
-            "Diretor: " + filme.getDiretor()));
+            ", Ano: " + filme.getAno() + 
+            ", Gênero: " + filme.getGeneros() +
+            ", Diretor: " + filme.getDiretor()));
         }
     }
 
