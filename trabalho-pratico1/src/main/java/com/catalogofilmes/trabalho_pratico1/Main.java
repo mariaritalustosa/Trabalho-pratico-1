@@ -26,8 +26,8 @@ public class Main implements CommandLineRunner {
         while (continuar) {  
             System.out.println("Digite uma opção:");
             System.out.println("1.Adicionar Filme");
-            System.out.println("2.Remover Filme por id");
-            System.out.println("3.Listar Filmes");
+            System.out.println("2.Remover filme por id");
+            System.out.println("3.Listar filmes");
             System.out.println("4.Buscar filme pelo id");
             System.out.println("5.Encerrar");
 

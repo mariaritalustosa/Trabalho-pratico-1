@@ -19,7 +19,6 @@ public class FilmeService {
         return filmeRepository.findById(id);
     }
     
-  
     public void removerFilme(Long id){
        filmeRepository.deleteById(id);
     }
