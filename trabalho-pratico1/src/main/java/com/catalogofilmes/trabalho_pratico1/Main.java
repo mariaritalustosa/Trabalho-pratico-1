@@ -1,5 +1,4 @@
 package com.catalogofilmes.trabalho_pratico1;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,14 +17,13 @@ public class Main implements CommandLineRunner {
         SpringApplication.run(Main.class, args);
     }
 
-    @Override
     public void run(String... args) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;  
 
         while (continuar) {  
             System.out.println("Digite uma opção:");
-            System.out.println("1.Adicionar Filme");
+            System.out.println("1.Adicionar filme");
             System.out.println("2.Remover filme por id");
             System.out.println("3.Listar filmes");
             System.out.println("4.Buscar filme pelo id");
@@ -57,7 +55,6 @@ public class Main implements CommandLineRunner {
         Long ano = Long.parseLong(scanner.nextLine());
         System.out.println("Digite o diretor do filme: ");
         String diretor = scanner.nextLine();
-
 
         Filme filme = new Filme();
         filme.setTitulo(titulo);
@@ -95,7 +92,9 @@ public class Main implements CommandLineRunner {
         scanner.nextLine();
 
         filmeService.buscarFilmePorId(id).ifPresentOrElse(
-            filme -> System.out.println("Título: " + filme.getTitulo() + ", Ano: " + filme.getAno()),
+            filme -> System.out.println("Título: " + filme.getTitulo() +
+             ", Ano: " + filme.getAno() +
+             ", Diretor: " + filme.getDiretor()),
             () -> System.out.println("ID não encontrado")
         );
     }

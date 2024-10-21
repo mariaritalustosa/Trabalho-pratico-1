@@ -1,5 +1,4 @@
 package com.catalogofilmes.trabalho_pratico1;
-
 import jakarta.persistence.*;
 import java.util.*;
 

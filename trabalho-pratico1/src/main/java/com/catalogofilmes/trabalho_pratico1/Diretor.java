@@ -1,15 +1,12 @@
 package com.catalogofilmes.trabalho_pratico1;
-
 import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
 public class Diretor {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
 
     @OneToMany(mappedBy = "diretor")

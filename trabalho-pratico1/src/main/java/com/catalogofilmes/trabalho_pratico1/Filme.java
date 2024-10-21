@@ -1,5 +1,4 @@
 package com.catalogofilmes.trabalho_pratico1;
-
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -8,9 +7,9 @@ public class Filme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
     private Long ano;
+    private String diretor;
 
     @ManyToMany
     @JoinTable(
@@ -19,8 +18,6 @@ public class Filme {
         inverseJoinColumns = @JoinColumn(name = "genero_id")
     )
     private List<Genero> generos; 
-
-    private String diretor;
 
     public Filme() {}
 
